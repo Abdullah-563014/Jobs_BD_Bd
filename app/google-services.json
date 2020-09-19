@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "384181932796",
+    "firebase_url": "https://jobs-bd-440be.firebaseio.com",
+    "project_id": "jobs-bd-440be",
+    "storage_bucket": "jobs-bd-440be.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:384181932796:android:cbfac54f7b37bc9454bd79",
+        "android_client_info": {
+          "package_name": "com.mominur77.Jobs_BD"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "384181932796-m03hc3qtv89rpjofacgvkbkkc1e6l83d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mominur77.Jobs_BD",
+            "certificate_hash": "065262da7eb877236eab9fcb1bae0a73c0d33018"
+          }
+        },
+        {
+          "client_id": "384181932796-s7v5anlnqe1rott9t1hj5v7q5m2cpkqp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApLry_GbWdxKrunUGDndZbVer-9kFtPt0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "384181932796-s7v5anlnqe1rott9t1hj5v7q5m2cpkqp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

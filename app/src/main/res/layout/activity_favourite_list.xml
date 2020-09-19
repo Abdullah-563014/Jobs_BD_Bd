@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FavouriteListActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/favouriteListRecyclerViewId"
+        android:layout_alignParentTop="true"
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/favouriteListActivityNoItemTextViewId"
+        android:text="আপনি আপনার ফেভারিট লিস্টে কোনো কিছু যোগ করেন নাই। ফেবারিট লিস্টে যোগ করতে চাইলে আপনার পছন্দের সার্কুলার এর পেজে গিয়ে ‘ফেবারিট করুন’ চাপুন। "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</RelativeLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:layout_marginTop="5dp"
+    android:id="@+id/favouriteListRootLayoutId"
+    android:background="#f9ee9f"
+    android:layout_height="70dp">
+    <ImageView
+        android:id="@+id/favouriteListLogoId"
+        android:src="@drawable/ic_favorite"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_width="40dp"
+        android:layout_height="40dp"/>
+    <TextView
+        android:id="@+id/favouriteListTitleTextViewId"
+        android:text="Title"
+        android:layout_toRightOf="@+id/favouriteListLogoId"
+        android:layout_toLeftOf="@+id/favouriteListDeleteImageViewId"
+        android:gravity="center"
+        android:layout_marginRight="5dp"
+        android:textSize="18sp"
+        android:textColor="#9C27B0"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <ImageView
+        android:id="@+id/favouriteListDeleteImageViewId"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

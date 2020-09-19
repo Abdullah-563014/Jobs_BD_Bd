@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <item android:title="সাধারণ মেনু">
+        <menu>
+            <item
+                android:id="@+id/nav_home"
+                android:icon="@drawable/ic_star_black"
+                android:title="হোম" />
+            <item
+                android:id="@+id/nav_jogajog"
+                android:icon="@drawable/ic_star_black"
+                android:title="যোগাযোগ" />
+            <item
+                android:id="@+id/nav_model_test"
+                android:icon="@drawable/ic_star_black"
+                android:title="মডেল টেস্ট" />
+            <item
+                android:id="@+id/nav_something_more"
+                android:icon="@drawable/ic_star_black"
+                android:title="আরও কিছু" />
+
+        </menu>
+    </item>
+    <item android:title="জরুরি তথ্য">
+        <menu>
+            <item
+                android:id="@+id/nav_notice_board"
+                android:icon="@drawable/ic_star_black"
+                android:title="নোটিশ বোর্ড" />
+
+            <item
+                android:id="@+id/nav_exam_date"
+                android:icon="@drawable/ic_star_black"
+                android:title="পরীক্ষার তারিখ" />
+
+            <item
+                android:id="@+id/nav_result"
+                android:icon="@drawable/ic_star_black"
+                android:title="পরীক্ষার রেজাল্ট" />
+        </menu>
+    </item>
+    <item android:title="বিবিধ তথ্য">
+        <menu>
+            <item
+                android:id="@+id/nav_shamprotik_tottho"
+                android:icon="@drawable/ic_star_black"
+                android:title="সাম্প্রতিক তথ্য" />
+            <item
+                android:id="@+id/nav_songram_o_sofolota"
+                android:icon="@drawable/ic_star_black"
+                android:title="সংগ্রাম ও সফলতা" />
+            <item
+                android:id="@+id/nav_onubad_chorcha"
+                android:icon="@drawable/ic_star_black"
+                android:title="অনুবাদ চর্চা" />
+            <item
+                android:id="@+id/nav_prosno_bank"
+                android:icon="@drawable/ic_star_black"
+                android:title="প্রশ্ন ব্যাংক" />
+            <item
+                android:id="@+id/nav_interview_tips"
+                android:icon="@drawable/ic_star_black"
+                android:title="ইন্টারভিউ টিপ্স" />
+            <item
+                android:id="@+id/nav_viva_ovigghota"
+                android:icon="@drawable/ic_star_black"
+                android:title="ভাইভা অভিজ্ঞতা" />
+            <item
+                android:id="@+id/nav_bcs_prosno_o_shomadhan"
+                android:icon="@drawable/ic_star_black"
+                android:title="বিসিএস প্রশ্ন ও সমাধান" />
+        </menu>
+    </item>
+    <item android:title="সার্কুলার ক্যাটাগড়ি">
+        <menu>
+            <item
+                android:id="@+id/nav_osthom_sreny_pasha_chakri"
+                android:icon="@drawable/ic_star_black"
+                android:title="৮ম শ্রেণি পাশে চাকরি" />
+            <item
+                android:id="@+id/nav_ssc_pash_a_chakri"
+                android:icon="@drawable/ic_star_black"
+                android:title="SSC পাশে চাকরি" />
+            <item
+                android:id="@+id/nav_hsc_pash_a_chakri"
+                android:icon="@drawable/ic_star_black"
+                android:title="HSC পাশে চাকরি" />
+            <item
+                android:id="@+id/nav_shorkari"
+                android:icon="@drawable/ic_star_black"
+                android:title="সরকারি" />
+            <item
+                android:id="@+id/nav_be_shorkari"
+                android:icon="@drawable/ic_star_black"
+                android:title="বেসরকারি" />
+            <item
+                android:id="@+id/nav_bank"
+                android:icon="@drawable/ic_star_black"
+                android:title="ব্যাংক" />
+            <item
+                android:id="@+id/nav_angio"
+                android:icon="@drawable/ic_star_black"
+                android:title="এনজিও" />
+            <item
+                android:id="@+id/nav_shikkha_protisthan"
+                android:icon="@drawable/ic_star_black"
+                android:title="শিক্ষা প্রতিষ্ঠান" />
+            <item
+                android:id="@+id/nav_sales_ba_marketing"
+                android:icon="@drawable/ic_star_black"
+                android:title="সেল্স / মার্কেটিং" />
+            <item
+                android:id="@+id/nav_difence"
+                android:icon="@drawable/ic_star_black"
+                android:title="ডিফেন্স" />
+            <item
+                android:id="@+id/nav_onnonno_beshorkari"
+                android:icon="@drawable/ic_star_black"
+                android:title="অন্যান্য বেসরকারি" />
+            <item
+                android:id="@+id/nav_chakrir_potrika"
+                android:icon="@drawable/ic_star_black"
+                android:title="চাকরির পত্রিকা" />
+        </menu>
+    </item>
+    <item android:title="এপ সম্পর্কিত">
+        <menu>
+            <item
+                android:id="@+id/nav_proyojonio_tottho"
+                android:icon="@drawable/ic_star_black"
+                android:title="প্রয়োজনীয় তথ্য" />
+            <item
+                android:id="@+id/nav_ei_app_ti_jevaba_bebohar_korben"
+                android:icon="@drawable/ic_star_black"
+                android:title="এপটি যেভাবে ব্যবহার করবেন" />
+            <item
+                android:id="@+id/nav_shomossaw_hola"
+                android:icon="@drawable/ic_star_black"
+                android:title="সমস্যা হলে" />
+            <item
+                android:id="@+id/nav_aro_apps"
+                android:icon="@drawable/ic_star_black"
+                android:title="আরও এপ্স" />
+        </menu>
+    </item>
+
+</menu>

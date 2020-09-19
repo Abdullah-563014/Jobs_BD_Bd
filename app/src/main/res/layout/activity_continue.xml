@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ContinueActivity"
+    android:background="#FFEEE5C3">
+        <LinearLayout
+            android:id="@+id/continueActivityWelcomeRootLayoutId"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/new_logo" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/app_name"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15sp"
+                android:text="Version 20.5"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="italic" />
+
+            <ProgressBar
+                android:id="@+id/continueActivityProgressBarId"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:progress="20"
+                android:progressTint="#9C27B0"
+                android:scaleY="1.3" />
+        </LinearLayout>
+        <!-- welcome section design is ended
+         welcome section design is ended
+         welcome section design is ended -->
+        <LinearLayout
+            android:id="@+id/continueActivityMainViewRootId"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/continueActivityAdminNoticeTextViewId"
+                android:textStyle="bold"
+                android:visibility="gone"
+                android:textColor="@color/colorBlack"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="সার্কুলারটি দেখতে নিচের Continue বাটন এ ক্লিক করুন |"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/colorBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+<!--            <TextView-->
+<!--                android:text="(Continue বাটন এ টাচ করার পর একটি পুরো স্ক্রিন এড আসতে পারে, এডে ক্লিক করতে না চাইলে কিছুক্ষণ পরে ক্রস চিহ্নতে টাচ করে এডটি কেটে দিন, অথবা, ব্যাক বাটন চেপে এড়িয়ে যান। এই বিরক্তটুকু করার জন্য আন্তরিক দূঃখ প্রকাশ করছি। । )"-->
+<!--                android:textSize="16sp"-->
+<!--                android:textStyle="italic"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:textColor="@color/colorBlack"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/continueActivityContinueCardViewId"
+                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardElevation="10dp"
+                app:cardCornerRadius="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:paddingStart="50dp"
+                    android:paddingEnd="50dp"
+                    android:layout_height="match_parent">
+                    <Button
+                        android:id="@+id/continueActivityContinueButtonId"
+                        android:text="Continue"
+                        android:textSize="18sp"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorWhite"
+                        android:background="@color/colorPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"/>
+                    <ImageView
+                        android:src="@drawable/continue_image"
+                        android:layout_toEndOf="@+id/continueActivityContinueButtonId"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <ImageView
+                android:id="@+id/continueActivityAdminNoticeImageViewId"
+                android:layout_marginTop="10dp"
+                android:visibility="gone"
+                android:layout_marginBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"/>
+        </LinearLayout>
+</RelativeLayout>
