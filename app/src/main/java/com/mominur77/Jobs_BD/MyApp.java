@@ -32,6 +32,17 @@ public class MyApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+
+        String platform=Utils.retrieveStringFromStorage(this,Constants.platformNameKey);
+        if (platform==null || platform.isEmpty()) {
+            platform="No Ads";
+        }
+        Constants.platformName=platform;
+
+
+
+
         Fabric.with(this, new Crashlytics());
 
         FirebaseAnalytics.getInstance(this);

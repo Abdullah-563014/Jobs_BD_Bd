@@ -715,7 +715,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.jobLogoButtonId:
-                url = "https://jhgrfsdcfghbopojnbhgfdrtedvkfghvnjhe.blogspot.com";
+//                url = "https://jhgrfsdcfghbopojnbhgfdrtedvkfghvnjhe.blogspot.com";
+                url = "https://web.facebook.com/md.abdullah5630/";
                 targetActivity = WebViewActivity.class;
 //                if (admobInsterstitialAd.isLoaded()){
 //                    admobInsterstitialAd.show();

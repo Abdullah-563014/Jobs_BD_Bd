@@ -32,6 +32,7 @@ public class Constants {
 
 
     public static final String lastAdsLoadedTimeKey="LastAdsLoadedTimeKey";
+    public static String platformNameKey="PlatformNameKey";
     public static String platformName="unity";
     public static String adMobInterstitialAdsCode="ca-app-pub-3940256099942544/1033173712";
     public static String admobBannerAdsCode="ca-app-pub-3940256099942544/6300978111";

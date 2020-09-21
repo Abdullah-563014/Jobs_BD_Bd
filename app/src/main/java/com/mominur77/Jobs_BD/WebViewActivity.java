@@ -19,6 +19,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -31,6 +32,11 @@ import android.os.Bundle;
 import com.github.ybq.android.spinkit.sprite.Sprite;
 import com.github.ybq.android.spinkit.style.FadingCircle;
 import com.google.android.gms.ads.AdRequest;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.gson.JsonElement;
 import com.mominur77.Jobs_BD.database.DatabaseClient;
 import com.mominur77.Jobs_BD.database.Page;
@@ -113,6 +119,7 @@ public class WebViewActivity extends Activity {
     private View unityBannerView;
     private com.google.android.gms.ads.AdView admobBannerAdsView;
     public com.google.android.gms.ads.InterstitialAd admobInsterstitialAd;
+    private DatabaseReference databaseReference;
 
 
     @Override
@@ -146,11 +153,29 @@ public class WebViewActivity extends Activity {
 
         addToFavouriteTextView.setOnClickListener(view -> bookmarkAlertDialog());
 
+        loadAdsPlatformNameFromDatabase();
+
 
 
     }
 
 
+    private void loadAdsPlatformNameFromDatabase() {
+        databaseReference.child("Ads").child("adsPlatformName").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists() && dataSnapshot.getValue()!=null) {
+                    String platform=dataSnapshot.getValue(String.class);
+                    Utils.saveStringToStorage(WebViewActivity.this,Constants.platformNameKey,platform);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
 
     private class AdsThread extends Thread {
         @Override
@@ -611,6 +636,8 @@ public class WebViewActivity extends Activity {
     }
 
     private void initializeAll() {
+        databaseReference= FirebaseDatabase.getInstance().getReference();
+
         webView = findViewById(R.id.myWebViewId);
         swipeRefreshLayout = findViewById(R.id.webViewActivitySwipeRefreshLayoutId);
         progressBar = findViewById(R.id.webActivityProgressBarId);
@@ -820,7 +847,9 @@ public class WebViewActivity extends Activity {
                 } catch (ActivityNotFoundException e) {
                     return false;
                 }
-            }else {
+            } else if (url.contains("facebook.com")) {
+                return openFacebookApp(url);
+            } else {
                 return false;
             }
         }
@@ -833,7 +862,7 @@ public class WebViewActivity extends Activity {
                 showInterstitialAds();
             }
 
-            if (url != null && url.toString().contains("play.google.com")) {
+            if (url.toString().contains("play.google.com")) {
                 try {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(url);
@@ -842,7 +871,9 @@ public class WebViewActivity extends Activity {
                 } catch (ActivityNotFoundException e) {
                     return false;
                 }
-            }else {
+            } else if (url.toString().contains("facebook.com")) {
+                return openFacebookApp(url.toString());
+            } else {
                 return false;
             }
         }
@@ -932,6 +963,45 @@ public class WebViewActivity extends Activity {
                 exitStatus = true;
                 Intent intent = new Intent(WebViewActivity.this, NoInternetActivity.class);
                 startActivity(intent);
+            }
+        }
+    }
+
+    private boolean openFacebookApp(String url) {
+        try {
+            PackageManager pm = getPackageManager();
+            PackageInfo info=pm.getPackageInfo("com.facebook.katana", PackageManager.GET_ACTIVITIES);
+            int versionCode = info.versionCode;
+            if (versionCode >= 3002850) { //newer versions of fb app
+                url= "fb://facewebmodal/f?href=" + url;
+            }
+            Intent intent = new Intent();
+            intent.setAction(android.content.Intent.ACTION_VIEW);
+            intent.setPackage("com.facebook.katana");
+            intent.setData(Uri.parse(url));
+            startActivity(Intent.createChooser(intent,"Please select a browser"));
+            return true;
+        }
+        catch (PackageManager.NameNotFoundException e) {
+            try {
+                PackageManager pm = getPackageManager();
+                PackageInfo info=pm.getPackageInfo("com.facebook.lite", PackageManager.GET_ACTIVITIES);
+                Intent intent = new Intent();
+                intent.setAction(android.content.Intent.ACTION_VIEW);
+                intent.setPackage("com.facebook.lite");
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+                return true;
+            }
+            catch (PackageManager.NameNotFoundException ex) {
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse(url));
+                    startActivity(intent);
+                    return true;
+                } catch (ActivityNotFoundException exc) {
+                    return false;
+                }
             }
         }
     }
