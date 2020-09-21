@@ -969,39 +969,30 @@ public class WebViewActivity extends Activity {
 
     private boolean openFacebookApp(String url) {
         try {
+            String temporaryUrl;
             PackageManager pm = getPackageManager();
             PackageInfo info=pm.getPackageInfo("com.facebook.katana", PackageManager.GET_ACTIVITIES);
             int versionCode = info.versionCode;
             if (versionCode >= 3002850) { //newer versions of fb app
-                url= "fb://facewebmodal/f?href=" + url;
+                temporaryUrl= "fb://facewebmodal/f?href=" + url;
+            } else {
+                temporaryUrl=url;
             }
             Intent intent = new Intent();
             intent.setAction(android.content.Intent.ACTION_VIEW);
             intent.setPackage("com.facebook.katana");
-            intent.setData(Uri.parse(url));
+            intent.setData(Uri.parse(temporaryUrl));
             startActivity(Intent.createChooser(intent,"Please select a browser"));
             return true;
         }
         catch (PackageManager.NameNotFoundException e) {
             try {
-                PackageManager pm = getPackageManager();
-                PackageInfo info=pm.getPackageInfo("com.facebook.lite", PackageManager.GET_ACTIVITIES);
-                Intent intent = new Intent();
-                intent.setAction(android.content.Intent.ACTION_VIEW);
-                intent.setPackage("com.facebook.lite");
+                Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(url));
                 startActivity(intent);
                 return true;
-            }
-            catch (PackageManager.NameNotFoundException ex) {
-                try {
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse(url));
-                    startActivity(intent);
-                    return true;
-                } catch (ActivityNotFoundException exc) {
-                    return false;
-                }
+            } catch (ActivityNotFoundException exc) {
+                return false;
             }
         }
     }
