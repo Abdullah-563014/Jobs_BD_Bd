@@ -177,15 +177,27 @@ public class ContinueActivity extends AppCompatActivity implements View.OnClickL
         if (Constants.platformName.equalsIgnoreCase("mopub")) {
             if (moPubInterstitial.isReady()) {
                 moPubInterstitial.show();
+            } else {
+                getNotificationUrl();
+                gotoWebViewActivity();
             }
         } else if (Constants.platformName.equalsIgnoreCase("unity")) {
             if (UnityAds.isReady(Constants.unityInterstitialAdsCode)) {
                 UnityAds.show(ContinueActivity.this, Constants.unityInterstitialAdsCode);
+            } else {
+                getNotificationUrl();
+                gotoWebViewActivity();
             }
         } else if (Constants.platformName.equalsIgnoreCase("admob")) {
             if (admobInsterstitialAd.isLoaded()) {
                 admobInsterstitialAd.show();
+            } else {
+                getNotificationUrl();
+                gotoWebViewActivity();
             }
+        } else if (Constants.platformName.equalsIgnoreCase("facebook")) {
+            getNotificationUrl();
+            gotoWebViewActivity();
         }
     }
 

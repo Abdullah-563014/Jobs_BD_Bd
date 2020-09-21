@@ -151,31 +151,6 @@ public class WebViewActivity extends Activity {
     }
 
 
-//    private void initAdmobInterstitialAd() {
-//        admobInterstitialAds = new com.google.android.gms.ads.InterstitialAd(this);
-//        admobInterstitialAds.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
-////        admobInterstitialAds.setAdUnitId("ca-app-pub-8280128094192030/4942438321");
-//        admobInterstitialAds.setAdListener(new com.google.android.gms.ads.AdListener() {
-//            @Override
-//            public void onAdClosed() {
-//                super.onAdClosed();
-//                willLoadAdmobInterstitial = true;
-//                admobInterstitialAds.loadAd(new AdRequest.Builder().build());
-//                startDownload();
-//            }
-//
-//            @Override
-//            public void onAdFailedToLoad(int i) {
-//                super.onAdFailedToLoad(i);
-//                if (willLoadAdmobInterstitial) {
-//                    admobInterstitialAds.loadAd(new AdRequest.Builder().build());
-//                }
-//                willLoadAdmobInterstitial = false;
-//            }
-//        });
-//        admobInterstitialAds.loadAd(new AdRequest.Builder().build());
-//    }
-
 
     private class AdsThread extends Thread {
         @Override
@@ -462,48 +437,6 @@ public class WebViewActivity extends Activity {
 
 
 
-//    private void initFacebookNativeBannerAd() {
-//        facebookNativeBannerAd = new NativeBannerAd(this, "YOUR_PLACEMENT_ID");
-////        facebookNativeBannerAd = new NativeBannerAd(this, "778248892574124_986291535103191");
-//        facebookNativeBannerAd.setAdListener(new NativeAdListener() {
-//            @Override
-//            public void onMediaDownloaded(Ad ad) {
-//
-//            }
-//
-//            @Override
-//            public void onError(Ad ad, AdError adError) {
-//
-//            }
-//
-//            @Override
-//            public void onAdLoaded(Ad ad) {
-//                if (facebookNativeBannerAd == null || facebookNativeBannerAd != ad) {
-//                    return;
-//                }
-//                inflateFacebookNativeBannerAd(facebookNativeBannerAd);
-//            }
-//
-//            @Override
-//            public void onAdClicked(Ad ad) {
-//
-//            }
-//
-//            @Override
-//            public void onLoggingImpression(Ad ad) {
-//
-//            }
-//        });
-//        facebookNativeBannerAd.loadAd();
-//    }
-
-
-
-//    private void initAdmobBottomBannerAd() {
-//        admobBottomBannerAdView = findViewById(R.id.webviewActivityAdmobBottomBannerAdsContainerId);
-//        AdRequest adRequest = new AdRequest.Builder().build();
-//        admobBottomBannerAdView.loadAd(adRequest);
-//    }
 
 //    private void inflateFacebookNativeBannerAd(NativeBannerAd nativeBannerAd) {
 //        // Unregister last ad
@@ -874,7 +807,7 @@ public class WebViewActivity extends Activity {
         @SuppressWarnings("deprecation")
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            if (url.contains(".html")) {
+            if (url.contains(".html") && timeDiff>=1) {
                 showInterstitialAds();
             }
 
@@ -896,7 +829,7 @@ public class WebViewActivity extends Activity {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
             Uri url = request.getUrl();
-            if (url.toString().contains(".html")) {
+            if (url.toString().contains(".html") && timeDiff>=1) {
                 showInterstitialAds();
             }
 
